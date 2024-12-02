@@ -6,6 +6,7 @@ import { Product } from '../../../dto/product_dto';
 import { FormsModule } from '@angular/forms';
 import { CartService } from '../../../services/cart.service';
 import { ToastrService } from 'ngx-toastr';
+import { Review } from '../../../dto/review_dto';
 
 @Component({
   selector: 'app-product-detail',
@@ -32,17 +33,13 @@ export class ProductDetailComponent {
     });
   }
 
-  getFilledStars(): number[] {
-    const rating =
-      this.product?.avaliacoes?.reduce((a, b) => a + b.nota, 0) ||
-      0 / (this.product?.avaliacoes?.length || 0);
+  getFilledStars(review: Review): number[] {
+    const rating = review.nota;
     return Array(Math.min(5, rating)).fill(0);
   }
 
-  getEmptyStars(): number[] {
-    const rating =
-      this.product?.avaliacoes?.reduce((a, b) => a + b.nota, 0) ||
-      0 / (this.product?.avaliacoes?.length || 0);
+  getEmptyStars(review: Review): number[] {
+    const rating = review.nota;
     return Array(5 - Math.min(5, rating)).fill(0);
   }
 

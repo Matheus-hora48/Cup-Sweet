@@ -18,10 +18,10 @@
               <p class="user-name">{{ review.user.userName }}</p>
             </div>
             <div class="review-stars">
-              <span *ngFor="let star of getFilledStars()" class="star"
+              <span *ngFor="let star of getFilledStars(review)" class="star"
                 >&#9733;</span
               >
-              <span *ngFor="let star of getEmptyStars()" class="star empty"
+              <span *ngFor="let star of getEmptyStars(review)" class="star empty"
                 >&#9733;</span
               >
             </div>
