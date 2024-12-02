@@ -1,0 +1,11 @@
+version: "3.7"
+
+services:
+  cupcakes_api:
+    container_name: cupcakes_api
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: cupcakes_api
+    ports:
+      - "8075:8080"
