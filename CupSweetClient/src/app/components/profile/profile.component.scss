@@ -1,0 +1,84 @@
+@import "styles";
+
+.profile-page {
+  padding: $spacing-md;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.profile-header {
+  display: flex;
+  align-items: center;
+
+  margin-bottom: $spacing-lg;
+  .profile-photo {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    margin-right: $spacing-md;
+  }
+
+  .user-info {
+    h2 {
+      margin: 0;
+      font-size: $font-size-heading;
+      color: $text-color;
+    }
+
+    p {
+      margin: 5px 0;
+      color: $text-vr-color;
+    }
+  }
+}
+
+.address-list {
+  margin-bottom: $spacing-lg;
+
+  h3 {
+    margin-bottom: $spacing-sm;
+    font-size: $font-size-heading;
+    color: $text-color;
+  }
+
+  .address-item {
+    display: flex;
+    margin-bottom: $spacing-sm;
+    padding: $spacing-sm;
+    background-color: $background-color;
+    border: 1px solid #ddd;
+    border-radius: $border-radius;
+    box-shadow: $box-shadow;
+    justify-content: space-between;
+    align-items: center;
+    p {
+      margin: 5px 0;
+    }
+
+    strong {
+      font-weight: bold;
+    }
+
+    button {
+      height: 20px;
+    }
+  }
+}
+
+.actions {
+  text-align: center;
+
+  .primary-btn {
+    padding: $spacing-sm $spacing-md;
+    background-color: $primary-color;
+    color: white;
+    border: none;
+    border-radius: $border-radius;
+    cursor: pointer;
+    font-size: $font-size-base;
+
+    &:hover {
+      background-color: darken($primary-color, 10%);
+    }
+  }
+}

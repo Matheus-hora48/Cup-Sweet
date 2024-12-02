@@ -1,0 +1,23 @@
+@import "styles";
+
+.carousel-container {
+  width: 100%;
+  display: flex;
+  gap: $spacing-md;
+
+  .carousel-item {
+    padding: $spacing-sm;
+    img {
+      width: 100%;
+      border-radius: $border-radius;
+      box-shadow: $box-shadow;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .carousel-container {
+    flex-direction: column;
+    align-items: center;
+  }
+}

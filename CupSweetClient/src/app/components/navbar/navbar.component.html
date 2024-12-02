@@ -1,0 +1,26 @@
+<div class="navbar">
+  <div class="logo" onclick="">Arte e Açúcar</div>
+
+  <div class="nav-items" [class.active]="isMenuOpen">
+    <a *ngIf="isLoggedIn()" (click)="navigateToProfile()">Perfil</a>
+    <a *ngIf="isLoggedIn()" (click)="navigateToOrder()">Pedidos</a>
+  </div>
+
+  <div class="nav-actions">
+    <a routerLink="/cart">
+      <div class="cart-icon">
+        <i class="fas fa-shopping-cart"></i>
+        <span class="cart-count" *ngIf="cartItemCount > 0">
+          {{ cartItemCount }}
+        </span>
+      </div>
+    </a>
+
+    <button *ngIf="!isLoggedIn()" (click)="login()">Login</button>
+    <button *ngIf="isLoggedIn()" (click)="logout()">Deslogar</button>
+  </div>
+
+  <div class="hamburger-menu" *ngIf="isLoggedIn()" (click)="toggleMenu()">
+    <i class="fas fa-bars"></i>
+  </div>
+</div>

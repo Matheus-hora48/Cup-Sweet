@@ -1,0 +1,31 @@
+<div class="auth-container">
+  <app-logo></app-logo>
+  <form>
+    <label for="email">Email</label>
+    <input
+      type="email"
+      placeholder="Digite seu email"
+      [(ngModel)]="email"
+      name="email"
+    />
+
+    <label for="password">Senha</label>
+    <input
+      type="password"
+      placeholder="Digite sua senha"
+      [(ngModel)]="password"
+      name="password"
+    />
+
+    <button type="button" (click)="login()">Entrar</button>
+
+    <div class="actions">
+      <button type="button" (click)="goToRegister()">
+        Não tem conta? Registre-se
+      </button>
+      <button type="button" (click)="goToForgotPassword()">
+        Esqueceu a senha?
+      </button>
+    </div>
+  </form>
+</div>

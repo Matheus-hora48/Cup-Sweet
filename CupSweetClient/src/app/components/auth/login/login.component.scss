@@ -1,0 +1,109 @@
+@import "styles";
+
+.auth-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background: $background-color;
+  padding: 0 16px;
+
+  form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 400px;
+    background: $secondary-color;
+    padding: $spacing-lg;
+    border-radius: $border-radius;
+    box-shadow: $box-shadow;
+
+    label {
+      font-size: $font-size-base;
+      margin-bottom: $spacing-sm;
+      color: $primary-color;
+      font-family: $font-family;
+    }
+
+    input {
+      margin-bottom: $spacing-md;
+      padding: $spacing-md;
+      border: 1px solid $primary-color;
+      border-radius: $border-radius;
+      font-size: $font-size-base;
+      font-family: $font-family;
+      outline: none;
+
+      &:focus {
+        border-color: $link-color;
+      }
+    }
+
+    button {
+      padding: $spacing-md;
+      background-color: $primary-color;
+      color: white;
+      border: none;
+      border-radius: $border-radius;
+      cursor: pointer;
+      font-size: $font-size-base;
+      font-family: $font-family;
+      margin-top: $spacing-md;
+
+      &:hover {
+        background-color: $link-color;
+      }
+    }
+
+    .actions {
+      margin-top: $spacing-md;
+      display: flex;
+      justify-content: space-between;
+      font-size: $font-size-small;
+      flex-direction: column;
+      gap: $spacing-sm;
+
+      button {
+        background: none;
+        color: $link-color;
+        border: none;
+        font-size: $font-size-small;
+        padding: 0;
+        cursor: pointer;
+        text-decoration: underline;
+
+        &:hover {
+          text-decoration: none;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 600px) {
+  .auth-container {
+    padding: 24px;
+  }
+
+  .auth-container form {
+    max-width: 100%;
+    padding: $spacing-md;
+  }
+
+  input,
+  button {
+    font-size: $font-size-small;
+    padding: $spacing-sm;
+  }
+
+  button {
+    margin-top: $spacing-sm;
+  }
+
+  .actions {
+    flex-direction: column;
+    align-items: center;
+    gap: $spacing-sm;
+  }
+}

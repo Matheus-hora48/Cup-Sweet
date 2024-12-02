@@ -1,0 +1,58 @@
+<app-navbar class="nav-bar-componet"></app-navbar>
+
+<div *ngFor="let order of orders; let i = index" class="order-container">
+  <div class="order-header" (click)="toggleAccordion(i)">
+    <div class="title-subtitle">
+      <h2>Pedido nº: {{ order.pedidoId }} <br /></h2>
+      <h4>{{ order.dataPedido | date : "dd/MM/yyyy HH:MM" }}</h4>
+    </div>
+    <div class="accordion-toggle">
+      <button [ngClass]="{ open: isOpen[i] }">
+        <i
+          class="fa"
+          [ngClass]="{
+            'fa-chevron-up': isOpen[i],
+            'fa-chevron-down': !isOpen[i]
+          }"
+        ></i>
+      </button>
+    </div>
+  </div>
+  <div id="accordion-{{ i }}" class="accordion-content" style="display: none">
+    <div class="order-address">
+      <h3>Endereço:</h3>
+      <p>
+        {{ order.endereco.rua }}, {{ order.endereco.numero }} -
+        {{ order.endereco.bairro }}
+      </p>
+      <p>{{ order.endereco.cidade }} - {{ order.endereco.estado }}</p>
+    </div>
+    <div class="order-products">
+      <h3>Produtos:</h3>
+      <div *ngFor="let product of order.produtos">
+        <div class="product">
+          <div class="product-image">
+            <img
+              [src]="product.produto.imageUrl"
+              alt="{{ product.produto.nome }}"
+            />
+          </div>
+          <div class="product-info">
+            <p>{{ product.produto.nome }}</p>
+            <p>{{ product.produto.descricao }}</p>
+            <p>Preço: {{ product.produto.preco | currency }}</p>
+            <p>Quantidade: {{ product.quantidade }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="order-payment">
+      <h3>Pagamento:</h3>
+      <p>
+        Forma de pagamento:
+        {{ order.pagamentos[0]?.formaPagamento | paymentMethod }}
+      </p>
+      <p>Total pago: {{ order.valorTotal | currency }}</p>
+    </div>
+  </div>
+</div>

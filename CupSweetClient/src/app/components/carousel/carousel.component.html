@@ -1,0 +1,6 @@
+<ngx-slick-carousel class="carousel-container" [config]="slickConfig">
+    <div *ngFor="let product of products" class="carousel-item">
+      <img [src]="product.image" alt="{{ product.name }}">
+    </div>
+  </ngx-slick-carousel>
+  

@@ -1,0 +1,88 @@
+@import "styles";
+
+.checkout-page {
+  padding: $spacing-lg;
+
+  .heading {
+    text-align: center;
+    color: $primary-color;
+    margin-bottom: $spacing-lg;
+  }
+
+  .step-section {
+    margin-bottom: $spacing-lg;
+
+    .address-item,
+    .payment-methods {
+      margin-bottom: $spacing-md;
+      padding: $spacing-md;
+      background-color: $secondary-color;
+      border-radius: $border-radius;
+
+      label {
+        display: flex;
+        align-items: center;
+
+        input {
+          margin-right: $spacing-sm;
+        }
+      }
+    }
+
+    .summary-section {
+      background-color: $secondary-color;
+      padding: $spacing-md;
+      margin-bottom: $spacing-md;
+      border-radius: $border-radius;
+
+      h2 {
+        color: $primary-color;
+        margin-bottom: $spacing-sm;
+      }
+
+      li {
+        margin: 8px;
+      }
+    }
+
+    .total {
+      text-align: center;
+      margin-top: $spacing-lg;
+
+      h3 {
+        color: $primary-color;
+        font-weight: bold;
+      }
+    }
+  }
+
+  .actions {
+    display: flex;
+    justify-content: space-between;
+
+    .primary-btn,
+    .secondary-btn {
+      padding: $spacing-sm $spacing-md;
+      border-radius: $border-radius;
+      font-size: $font-size-base;
+      cursor: pointer;
+    }
+
+    .primary-btn {
+      background-color: $primary-color;
+      color: white;
+      border: none;
+
+      &:disabled {
+        background-color: lighten($primary-color, 30%);
+        cursor: not-allowed;
+      }
+    }
+
+    .secondary-btn {
+      background-color: $secondary-color;
+      color: $text-color;
+      border: none;
+    }
+  }
+}

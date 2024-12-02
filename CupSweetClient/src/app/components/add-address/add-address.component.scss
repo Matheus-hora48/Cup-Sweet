@@ -1,0 +1,75 @@
+@import "styles";
+
+.add-address-container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: $spacing-lg;
+  background-color: $background-color;
+  border-radius: $border-radius;
+  box-shadow: $box-shadow;
+
+  h1 {
+    text-align: center;
+    font-size: $font-size-heading;
+    color: $primary-color;
+  }
+
+  .form-group {
+    margin-bottom: $spacing-sm;
+  }
+
+  label {
+    font-size: $font-size-base;
+    color: $text-color;
+  }
+
+  input,
+  select {
+    width: 100%;
+    padding: $spacing-sm;
+    border: 1px solid #ddd;
+    border-radius: $border-radius;
+    font-size: $font-size-base;
+    color: $text-color;
+    margin-top: $spacing-xs;
+
+    &::placeholder {
+      color: $text-vr-color;
+    }
+
+    &:focus {
+      border-color: $primary-color;
+      outline: none;
+    }
+  }
+
+  select {
+    background-color: #fff;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+  }
+
+  .error-message {
+    color: red;
+    font-size: $font-size-small;
+    margin-bottom: $spacing-sm;
+    text-align: center;
+  }
+
+  button {
+    width: 100%;
+    padding: $spacing-md;
+    background-color: $primary-color;
+    color: white;
+    border: none;
+    border-radius: $border-radius;
+    font-size: $font-size-base;
+    cursor: pointer;
+    margin-top: $spacing-md;
+
+    &:hover {
+      background-color: $link-color;
+    }
+  }
+}

@@ -1,0 +1,97 @@
+<app-navbar class="nav-bar-componet"></app-navbar>
+
+<div class="checkout-page">
+  <app-step-progress [currentStep]="currentStep"></app-step-progress>
+
+  <div *ngIf="currentStep === 1" class="step-section">
+    <h1 class="heading">Escolha o Endereço</h1>
+    <div *ngFor="let address of addresses; let i = index" class="address-item">
+      <label>
+        <input
+          type="radio"
+          name="address"
+          [value]="address.enderecoId"
+          [checked]="i === 0"
+          (change)="selectAddress(address)"
+        />
+        <div>
+          <strong
+            >{{ address.rua }}, n {{ address.numero }},
+            {{ address.bairro }}</strong
+          >
+          <p>{{ address.cidade }} - {{ address.estado }}</p>
+        </div>
+      </label>
+    </div>
+    <div class="actions">
+      <button
+        class="primary-btn"
+        [disabled]="!selectedAddress"
+        (click)="nextStep()"
+      >
+        Continuar
+      </button>
+    </div>
+  </div>
+
+  <div *ngIf="currentStep === 2" class="step-section">
+    <h1 class="heading">Forma de Pagamento</h1>
+    <div class="payment-methods">
+      <label>
+        <input
+          type="radio"
+          name="paymentMethod"
+          value="Pix"
+          (change)="selectPaymentMethod('Pix')"
+        />
+        Pix
+      </label>
+    </div>
+    <div class="actions">
+      <button class="secondary-btn" (click)="previousStep()">Voltar</button>
+      <button
+        class="primary-btn"
+        [disabled]="!selectedPaymentMethod"
+        (click)="nextStep()"
+      >
+        Continuar
+      </button>
+    </div>
+  </div>
+
+  <div *ngIf="currentStep === 3" class="step-section">
+    <h1 class="heading">Resumo do Pedido</h1>
+    <div class="summary-section">
+      <h2>Endereço</h2>
+      <p>
+        {{ selectedAddress.rua }}, n {{ selectedAddress.numero }},
+        {{ selectedAddress.bairro }}
+      </p>
+    </div>
+
+    <div class="summary-section">
+      <h2>Forma de Pagamento</h2>
+      <p>{{ selectedPaymentMethod }}</p>
+    </div>
+
+    <div class="summary-section">
+      <h2>Itens</h2>
+      <ul>
+        <li *ngFor="let item of cartItems">
+          {{ item.quantity }}x {{ item.nome }} - R$ {{ item.preco }}
+        </li>
+      </ul>
+    </div>
+
+    <div class="total">
+      <h3>Total: R$ {{ totalPrice | number : "1.2-2" }}</h3>
+    </div>
+
+    <div class="actions">
+      <button class="secondary-btn" (click)="previousStep()">Voltar</button>
+      <button class="primary-btn" (click)="completeCheckout()">
+        Finalizar Compra
+      </button>
+    </div>
+  </div>
+</div>

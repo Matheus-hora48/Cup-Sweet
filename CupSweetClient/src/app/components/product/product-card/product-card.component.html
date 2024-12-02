@@ -1,0 +1,13 @@
+<div class="product-card" (click)="navigateToDetails()">
+  <img class="product-image" [src]="product.imageUrl" alt="Imagem do Produto" />
+  <div class="product-info">
+    <h3 class="product-title">{{ product.nome }}</h3>
+    <p class="product-description">{{ product.descricao }}</p>
+    <div class="product-footer">
+      <span class="product-availability"
+        >Disponível: {{ product.estoque }}</span
+      >
+      <span class="product-price">R$ {{ product.preco }}</span>
+    </div>
+  </div>
+</div>

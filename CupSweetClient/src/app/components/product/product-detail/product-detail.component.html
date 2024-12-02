@@ -1,0 +1,54 @@
+<div class="container">
+  <div class="product-detail">
+    <img [src]="product?.imageUrl" alt="{{ product?.nome }}" />
+    <h2 class="product-name">{{ product?.nome }}</h2>
+    <p class="product-description">{{ product?.descricao }}</p>
+
+    <div class="reviews">
+      <h3>Avaliações</h3>
+      <ng-container *ngFor="let review of product?.avaliacoes ?? []">
+        <div class="review">
+          <div class="review-header">
+            <div class="review-user">
+              <img
+                class="user-icon"
+                [src]="'assets/person.png'"
+                alt="Ícone do usuário"
+              />
+              <p class="user-name">{{ review.user.userName }}</p>
+            </div>
+            <div class="review-stars">
+              <span *ngFor="let star of getFilledStars()" class="star"
+                >&#9733;</span
+              >
+              <span *ngFor="let star of getEmptyStars()" class="star empty"
+                >&#9733;</span
+              >
+            </div>
+          </div>
+
+          <p class="review-comment">{{ review.comentario }}</p>
+        </div>
+      </ng-container>
+    </div>
+
+    <div class="add-cart">
+      <div class="quantity-controls">
+        <button (click)="decreaseQuantity()">-</button>
+        <input
+          id="quantity"
+          type="number"
+          [(ngModel)]="quantity"
+          [min]="1"
+          [max]="product?.estoque ?? 0"
+          readonly
+        />
+        <button (click)="increaseQuantity()">+</button>
+      </div>
+
+      <button class="add-to-cart" (click)="addProductCart()">
+        Adicionar ao carrinho
+      </button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,29 @@
+<div class="filter-dialog">
+  <h2>Ordenar Produtos</h2>
+  <div class="filter-options">
+    <label>
+      <input type="radio" name="sort" value="low" [(ngModel)]="sortOrder" />
+      Menor preço
+    </label>
+    <label>
+      <input type="radio" name="sort" value="high" [(ngModel)]="sortOrder" />
+      Maior preço
+    </label>
+  </div>
+  <h2>Filtrar Produtos</h2>
+  <div class="filter-categories">
+    <h3>Categorias</h3>
+    <label *ngFor="let category of categories; let i = index">
+      <input
+        type="checkbox"
+        [checked]="selectedCategories.includes(category)"
+        (change)="onCategoryChange(category, $event)"
+      />
+      {{ category }}
+    </label>
+  </div>
+  <div class="dialog-actions">
+    <button (click)="applyFilters()">Aplicar</button>
+    <button (click)="closeDialog()">Cancelar</button>
+  </div>
+</div>

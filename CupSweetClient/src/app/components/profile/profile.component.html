@@ -1,0 +1,35 @@
+<app-navbar class="nav-bar-componet"></app-navbar>
+
+<div class="profile-page">
+  <div class="profile-header">
+    <img class="profile-photo" [src]="user.imagemUrl" alt="Foto do Usuário" />
+    <div class="user-info">
+      <h2>{{ user.userName }}</h2>
+      <p>{{ user.email }}</p>
+      <p>{{ user.phoneNumber }}</p>
+    </div>
+  </div>
+
+  <div class="address-list">
+    <h3>Endereços Salvos</h3>
+    <div *ngFor="let address of addresses" class="address-item">
+      <div>
+        <p>
+          <strong
+            >{{ address.rua }}, n {{ address.numero }},
+            {{ address.bairro }}</strong
+          >
+        </p>
+        <p>{{ address.complemento }}</p>
+        <p>{{ address.cidade }} - {{ address.estado }}, {{ address.cep }}</p>
+      </div>
+      <button (click)="deleteAddress(address.enderecoId)">🗑️</button>
+    </div>
+  </div>
+
+  <div class="actions">
+    <button class="primary-btn" (click)="addNewAddress()">
+      Adicionar Novo Endereço
+    </button>
+  </div>
+</div>

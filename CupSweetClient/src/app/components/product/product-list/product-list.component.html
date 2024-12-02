@@ -1,0 +1,14 @@
+<div class="product-list-container">
+  <div class="search-filter-container">
+    <input type="text" placeholder="Pesquise produtos..." class="search-bar" />
+    <i class="fas fa-filter filter-icon" (click)="toggleFilter()"></i>
+  </div>
+
+  <div class="product-grid">
+    <app-product-card
+      *ngFor="let product of filteredProducts()"
+      [product]="product"
+    >
+    </app-product-card>
+  </div>
+</div>

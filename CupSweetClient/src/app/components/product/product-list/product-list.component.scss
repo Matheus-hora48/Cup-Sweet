@@ -1,0 +1,45 @@
+@import "styles";
+
+.product-list-container {
+  padding: $spacing-lg;
+  background-color: $background-color;
+  min-height: 100vh;
+
+  .search-filter-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: $spacing-lg;
+    gap: 16px;
+    cursor: pointer;
+
+    .search-bar {
+      width: 100%;
+      padding: $spacing-sm;
+      border: 1px solid lighten($text-color, 40%);
+      border-radius: $border-radius;
+      font-size: $font-size-base;
+      font-family: $font-family;
+    }
+
+    .filter-button {
+      padding: $spacing-sm $spacing-md;
+      font-size: $font-size-base;
+      color: $background-color;
+      border: none;
+      border-radius: $border-radius;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+
+      &:hover {
+        color: darken($primary-color, 10%);
+      }
+    }
+  }
+
+  .product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: $spacing-lg;
+  }
+}
