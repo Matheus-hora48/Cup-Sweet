@@ -8,17 +8,17 @@ FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 ARG BUILD_CONFIGURATION=Release
 WORKDIR /src
 
-COPY ["CupSweetAPI/CupcakeStoreAPI/CupcakeStoreAPI.csproj", "CupSweetAPI/CupcakeStoreAPI/"]
+COPY ["CupSweetAPI/CupcakeStoreAPI.csproj", "CupSweetAPI/"]
 
-RUN dotnet restore "./CupSweetAPI/CupcakeStoreAPI/CupcakeStoreAPI.csproj"
+RUN dotnet restore "./CupSweetAPI/CupcakeStoreAPI.csproj"
 
 COPY . .
 
-RUN dotnet build "CupSweetAPI/CupcakeStoreAPI/CupcakeStoreAPI.csproj" -c $BUILD_CONFIGURATION -o /app/build
+RUN dotnet build "CupSweetAPI/CupcakeStoreAPI.csproj" -c $BUILD_CONFIGURATION -o /app/build
 
 FROM build AS publish
 ARG BUILD_CONFIGURATION=Release
-RUN dotnet publish "CupSweetAPI/CupcakeStoreAPI/CupcakeStoreAPI.csproj" -c $BUILD_CONFIGURATION -o /app/publish /p:UseAppHost=false
+RUN dotnet publish "CupSweetAPI/CupcakeStoreAPI.csproj" -c $BUILD_CONFIGURATION -o /app/publish /p:UseAppHost=false
 
 FROM base AS final
 WORKDIR /app
