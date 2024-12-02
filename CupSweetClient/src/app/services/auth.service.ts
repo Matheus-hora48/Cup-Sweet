@@ -18,7 +18,7 @@ export class AuthService {
       token: string;
       refreshToken: string;
       expiration: Date;
-    }>('https://localhost:7046/api/auth/login/', {
+    }>('https://cup-sweet.onrender.com/api/auth/login/', {
       email,
       password,
     });
@@ -31,7 +31,7 @@ export class AuthService {
     password: string
   ): Observable<{ status: string; message: string }> {
     return this.http.post<{ status: string; message: string }>(
-      'https://localhost:7046/api/auth/register/',
+      'https://cup-sweet.onrender.com/api/auth/register/',
       {
         email,
         password,

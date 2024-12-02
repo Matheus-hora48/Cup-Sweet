@@ -14,7 +14,7 @@ export class OrderService {
   getOrders(): Observable<any[]> {
     const id = this.authService.getUser()?.id;
     return this.http.get<any[]>(
-      `https://localhost:7046/api/pedido/usuario/${id}`
+      `https://cup-sweet.onrender.com/api/pedido/usuario/${id}`
     );
   }
 }

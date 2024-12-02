@@ -13,14 +13,14 @@ export class AddressService {
     const userId = this.authService.getUser()?.id;
 
     return this.http.get(
-      `https://localhost:7046/api/Endereco/usuario/${userId}`
+      `https://cup-sweet.onrender.com/api/Endereco/usuario/${userId}`
     );
   }
 
   addAddress(newAddress: any): Observable<any> {
     const userId = this.authService.getUser()?.id;
     newAddress = { ...newAddress, userId: userId };
-    return this.http.post('https://localhost:7046/api/Endereco', newAddress);
+    return this.http.post('https://cup-sweet.onrender.com/api/Endereco', newAddress);
   }
 
   getAddressById(id: number): any | undefined {
@@ -28,6 +28,6 @@ export class AddressService {
   }
 
   deleteAddress(id: any) {
-    return this.http.delete(`https://localhost:7046/api/Endereco/${id}`);
+    return this.http.delete(`https://cup-sweet.onrender.com/api/Endereco/${id}`);
   }
 }

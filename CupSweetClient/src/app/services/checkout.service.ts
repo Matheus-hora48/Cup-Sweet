@@ -76,6 +76,6 @@ export class CheckoutService {
       })),
     };
 
-    return this.http.post('https://localhost:7046/api/Pedido', order);
+    return this.http.post('https://cup-sweet.onrender.com/api/Pedido', order);
   }
 }

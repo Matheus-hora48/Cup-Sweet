@@ -11,6 +11,6 @@ export class ProfileService {
 
   getUserProfile(): Observable<any> {
     const id = this.authService.getUser()?.id;
-    return this.http.get(`https://localhost:7046/api/Auth/${id}`);
+    return this.http.get(`https://cup-sweet.onrender.com/api/Auth/${id}`);
   }
 }
