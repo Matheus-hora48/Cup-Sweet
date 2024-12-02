@@ -2,13 +2,22 @@
 
 .profile-page {
   padding: $spacing-md;
-  max-width: 600px;
+  width: 100dvw;
   margin: 0 auto;
+}
+
+.profile {
+  margin-top: 40px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .profile-header {
   display: flex;
   align-items: center;
+  justify-content: center;
 
   margin-bottom: $spacing-lg;
   .profile-photo {
@@ -27,7 +36,7 @@
 
     p {
       margin: 5px 0;
-      color: $text-vr-color;
+      color: $text-color;
     }
   }
 }
