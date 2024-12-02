@@ -1,27 +1,36 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, of } from 'rxjs';
+import { catchError, Observable, of, throwError } from 'rxjs';
 import { jwtDecode } from 'jwt-decode';
 import { UserTokenDTO } from '../dto/user_token_dto';
+import { ToastrService } from 'ngx-toastr';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AuthService {
-  constructor(private http: HttpClient) {}
+  private baseUrl = 'https://cup-sweet.onrender.com/api/auth/';
+  constructor(private http: HttpClient, private toastr: ToastrService) {}
 
   login(
     email: string,
     password: string
   ): Observable<{ token: string; refreshToken: string; expiration: Date }> {
-    return this.http.post<{
-      token: string;
-      refreshToken: string;
-      expiration: Date;
-    }>('https://cup-sweet.onrender.com/api/auth/login/', {
-      email,
-      password,
-    });
+    return this.http
+      .post<{
+        token: string;
+        refreshToken: string;
+        expiration: Date;
+      }>(`${this.baseUrl}login/`, { email, password })
+      .pipe(
+        catchError((error) => {
+          this.toastr.error(
+            error.error?.message || 'Erro ao fazer login',
+            'Erro'
+          );
+          return throwError(() => error);
+        })
+      );
   }
 
   register(
@@ -30,15 +39,22 @@ export class AuthService {
     email: string,
     password: string
   ): Observable<{ status: string; message: string }> {
-    return this.http.post<{ status: string; message: string }>(
-      'https://cup-sweet.onrender.com/api/auth/register/',
-      {
+    return this.http
+      .post<{ status: string; message: string }>(`${this.baseUrl}register/`, {
         email,
         password,
         phoneNumber: contato,
         userName: name.split(' ')[0],
-      }
-    );
+      })
+      .pipe(
+        catchError((error) => {
+          this.toastr.error(
+            error.error?.message || 'Erro ao registrar',
+            'Erro'
+          );
+          return throwError(() => error);
+        })
+      );
   }
 
   recoverPassword(email: string): boolean {
