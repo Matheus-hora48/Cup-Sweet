@@ -5,11 +5,12 @@ import { CommonModule } from '@angular/common';
 import { DialogService } from '@ngneat/dialog';
 import { FilterDialogComponent } from '../../filter-dialog/filter-dialog.component';
 import { Product } from '../../../dto/product_dto';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-product-list',
   standalone: true,
-  imports: [ProductCardComponent, CommonModule],
+  imports: [ProductCardComponent, CommonModule, FormsModule],
   templateUrl: './product-list.component.html',
   styleUrl: './product-list.component.scss',
 })

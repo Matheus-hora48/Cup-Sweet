@@ -1,6 +1,11 @@
 <div class="product-list-container">
   <div class="search-filter-container">
-    <input type="text" placeholder="Pesquise produtos..." class="search-bar" />
+    <input
+      type="text"
+      placeholder="Pesquise produtos..."
+      class="search-bar"
+      [(ngModel)]="searchQuery"
+    />
   </div>
 
   <div class="product-grid">
